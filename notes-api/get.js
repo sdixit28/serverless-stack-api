@@ -6,7 +6,7 @@ export const main = handler(async (event, context) => {
     TableName: process.env.tableName,
     // 'Key' defines the partition key and sort key of the item to be retrieved
     Key: {
-      userId: "123", // The id of the author
+      userId: event.requestContext.identity.cognitoIdentityId, // The id of the author
       //noteId: event.pathParameters.id, // The id of the note from the path
       noteId: "0b2a14c0-4b31-11eb-be61-338410840ffd",
     },
