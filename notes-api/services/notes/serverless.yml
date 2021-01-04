@@ -27,6 +27,9 @@ provider:
   environment:
     stripeSecretKey: ${env:STRIPE_SECRET_KEY}
     tableName: !ImportValue '${self:custom.sstApp}-TableName'
+#  apiGateway:
+#    restApiId: m0fi11tgg1
+#    restApiRootResourceId: oz4fg95371
 
   iamRoleStatements:
     - Effect: Allow
@@ -122,6 +125,4 @@ resources:
   # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
   # Cognito Identity Pool Policy
-  - ${file(resources/cognito-policy.yml)}
-
-  
+  - ${file(resources/cognito-policy.yml)}  
